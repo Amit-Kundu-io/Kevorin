@@ -121,9 +121,9 @@ mavenPublishing {
 
     pom {
         name.set("Kevorin DateTime")
-        description.set("Fast Kotlin Multiplatform Date & Time library.")
+        description.set("Kotlin Multiplatform Date & Time library.")
         inceptionYear.set("2026")
-        url.set("https://github.com/Amit-Kundu-io/Kevorin.git")
+        url.set("https://github.com/Amit-Kundu-io/kevorin")
 
         licenses {
             license {
@@ -140,9 +140,9 @@ mavenPublishing {
         }
 
         scm {
-            connection.set("scm:git:git://github.com/Amit-Kundu-io/kevorin.git")
-            developerConnection.set("scm:git:ssh://github.com/Amit-Kundu-io/kevorin.git")
             url.set("https://github.com/Amit-Kundu-io/kevorin")
         }
     }
+
+
 }
