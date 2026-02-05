@@ -31,6 +31,11 @@ internal class KevorinTimeEngine {
     }
 
     fun format(epochSeconds: Long, format: TimeFormat, timeZoneId: String?): String {
+        if (format.code == 5) {
+            // RELATIVE
+            return buildRelative(epochSeconds)
+        }
+
         val local = Instant.fromEpochSeconds(epochSeconds)
             .toLocalDateTime(zone(timeZoneId ?: systemTimeZone()))
         return format(local, format)

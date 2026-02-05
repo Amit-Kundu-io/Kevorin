@@ -23,5 +23,10 @@ value class TimeFormat private constructor(val code: Int) {
 
         /** 02:30:25 PM */
         val HH_MM_SS_A = TimeFormat(4)
+
+        // ===== RELATIVE TIME =====
+
+        /** Auto relative time: "5 min ago", "Yesterday", etc. */
+        val RELATIVE = TimeFormat(5)
     }
 }
