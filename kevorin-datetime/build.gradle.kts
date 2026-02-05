@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
     alias(libs.plugins.androidLint)
+
+    id("com.vanniktech.maven.publish") version "0.28.0"
 }
 
 kotlin {
@@ -99,4 +101,48 @@ kotlin {
         }
     }
 
+
+
+
+}
+
+
+mavenPublishing {
+
+    publishToMavenCentral()
+
+    signAllPublications()
+
+    coordinates(
+        groupId = "io.github.amit-kundu-io",
+        artifactId = "kevorin-datetime",
+        version = "1.0.0"
+    )
+
+    pom {
+        name.set("Kevorin DateTime")
+        description.set("Fast Kotlin Multiplatform Date & Time library.")
+        inceptionYear.set("2026")
+        url.set("https://github.com/Amit-Kundu-io/Kevorin.git")
+
+        licenses {
+            license {
+                name.set("MIT License")
+                url.set("https://opensource.org/licenses/MIT")
+            }
+        }
+
+        developers {
+            developer {
+                id.set("Amit-Kundu-io")
+                name.set("Amit Kundu")
+            }
+        }
+
+        scm {
+            connection.set("scm:git:git://github.com/Amit-Kundu-io/kevorin.git")
+            developerConnection.set("scm:git:ssh://github.com/Amit-Kundu-io/kevorin.git")
+            url.set("https://github.com/Amit-Kundu-io/kevorin")
+        }
+    }
 }
