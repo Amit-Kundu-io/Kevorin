@@ -1,48 +1,82 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Desktop (JVM).
+# Kevorin DateTime
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
-
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
-
-### Build and Run Android Application
-
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
-
-### Build and Run Desktop (JVM) Application
-
-To build and run the development version of the desktop app, use the run configuration from the run widget
-in your IDE’s toolbar or run it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:run
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:run
-  ```
-
-### Build and Run iOS Application
-
-To build and run the development version of the iOS app, use the run configuration from the run widget
-in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+Simple **Kotlin Multiplatform** library for formatting **Date** and **Time**.
 
 ---
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+## Dependency
+
+Add to your shared module:
+
+```kotlin
+dependencies {
+    implementation("")
+}
+```
+
+---
+
+## Usage
+
+### Format Date
+
+```kotlin
+val date = KevorinDateFormat.format(
+    epochSeconds = 13132132,
+    format = KevorinDate.DD_MMM_YYYY
+)
+```
+
+### Format Time
+
+```kotlin
+val time = KevorinTimeFormat.format(
+    millis = 123132132132,
+    format = TimeFormat.HH_MM_A
+)
+```
+
+---
+
+## Compose Example
+
+```kotlin
+@Composable
+fun DateTimeSample() {
+    Column {
+        Text(KevorinDateFormat.format(13132132, KevorinDate.DD_MMM_YYYY))
+        Text(KevorinTimeFormat.format(123132132132, TimeFormat.HH_MM_A))
+    }
+}
+```
+
+---
+
+## Available Functions
+
+### Date Formats
+
+| Function      | Example Output       |
+| ------------- | -------------------- |
+| ISO_DATE      | 2026-01-10           |
+| ISO_DATE_TIME | 2026-01-10 14:30:25  |
+| ISO_UTC       | 2026-01-10T14:30:25Z |
+| DD_MM_YYYY    | 10-01-2026           |
+| MM_DD_YYYY    | 01-10-2026           |
+| YYYY_MM_DD    | 2026-01-10           |
+| DD_MMM_YYYY   | 10 Jan 2026          |
+| DD_MMMM_YYYY  | 10 January 2026      |
+| MMM_DD_YYYY   | Jan 10, 2026         |
+| MMMM_DD_YYYY  | January 10, 2026     |
+| MMM_DD        | Jan 10               |
+| MMMM_DD       | January 10           |
+
+### Time Formats
+
+| Function   | Example Output |
+| ---------- | -------------- |
+| HH_MM      | 14:30          |
+| HH_MM_SS   | 14:30:25       |
+| HH_MM_A    | 02:30 PM       |
+| HH_MM_SS_A | 02:30:25 PM    |
+| RELATIVE   |                |
