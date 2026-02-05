@@ -12,7 +12,7 @@ kotlin {
     androidLibrary {
         namespace = "com.kevorin.datetime"
         compileSdk = 36
-        minSdk = 29
+        minSdk = 24
 
         withHostTestBuilder {
         }

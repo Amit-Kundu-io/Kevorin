@@ -13,10 +13,10 @@ object KevorinDateFormat {
      * Format epoch seconds → date string.
      */
     fun format(
-        epochSeconds: Long,
+        epoch: Long, // 10 digits
         format: KevorinDate,
         timeZoneId: String? = null
     ): String {
-        return engine.format(epochSeconds, format, timeZoneId)
+        return engine.format(epoch, format, timeZoneId)
     }
 }

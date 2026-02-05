@@ -1,5 +1,7 @@
 package com.kevorin.datetime.date_format
 
+import kotlin.jvm.JvmInline
+
 
 // ======================================================
 // Kevorin DateTime — FINAL COMMENTED PRODUCTION VERSION
@@ -20,6 +22,7 @@ package com.kevorin.datetime.date_format
  * - Suitable for performance-sensitive libraries
  */
 
+@JvmInline
 value class KevorinDate private constructor(val code: Int) {
 
 

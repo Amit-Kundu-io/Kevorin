@@ -1,9 +1,13 @@
 package com.kevorin.datetime.time_format
 
+import kotlin.jvm.JvmInline
+
 
 /**
  * Uses primitive Int → lowest RAM & fastest switch.
  */
+
+@JvmInline
 value class TimeFormat private constructor(val code: Int) {
 
     companion object {
