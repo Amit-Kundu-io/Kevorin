@@ -1,8 +1,6 @@
 # Kevorin KMP Library 🚀
 
 >⚠️ Status: Under Active Development<br>
->This library is currently evolving. APIs and features may change until the first stable release.
-
 
 **Kevorin** is a collection of **Kotlin Multiplatform utility modules** designed to help Android & KMP developers build apps **faster, cleaner, and with less boilerplate**.
 
