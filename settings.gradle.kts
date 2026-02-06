@@ -34,3 +34,4 @@ plugins {
 
 include(":composeApp")
 include(":kevorin-datetime")
+include(":kevorin-utils")
